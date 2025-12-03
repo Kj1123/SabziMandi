@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sabzi Mandi International Foods & Groceries</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --green: #0d8b2b;
+      --red: #e52629;
+      --dark: #222;
+      --light-bg: #f7f9f5;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #ffffff;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Header / Nav */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #ffffffee;
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid #e3e3e3;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.6rem 0;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo-img {
+      height: 46px;
+      width: auto;
+    }
+
+    .nav-title {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--green);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: var(--red);
+      transition: width 0.2s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, #ffffff, #f3fff5);
+      padding: 3.5rem 0 3rem;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: #e9f8ed;
+      color: var(--green);
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-badge span {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 3vw + 1rem, 2.6rem);
+      margin-bottom: 0.6rem;
+      color: var(--dark);
+    }
+
+    .hero h1 span {
+      color: var(--red);
+    }
+
+    .hero-sub {
+      color: #555;
+      font-size: 0.98rem;
+      margin-bottom: 1.4rem;
+      max-width: 32rem;
+    }
+
+    .hero-highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .pill {
+      border-radius: 999px;
+      border: 1px solid #dfdfdf;
+      padding: 0.35rem 0.8rem;
+      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: #fff;
+    }
+
+    .pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--red);
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: #fff;
+      padding: 0.65rem 1.4rem;
+      border-radius: 999px;
+      border: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      background: #0b7223;
+      box-shadow: 0 10px 18px rgba(0, 0, 0, 0.12);
+    }
+
+    .btn-outline {
+      border-radius: 999px;
+      padding: 0.55rem 1.2rem;
+      border: 1px solid #cccccc;
+      background: #fff;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .hero-note {
+      margin-top: 0.9rem;
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    .hero-card {
+      border-radius: 1.1rem;
+      background: #ffffff;
+      border: 1px solid #e4e4e4;
+      padding: 1.35rem 1.2rem;
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.06);
+    }
+
+    .hero-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
+      color: var(--dark);
+    }
+
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.9rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .info-label {
+      font-weight: 600;
+      color: #444;
+    }
+
+    .info-value {
+      text-align: right;
+      color: #555;
+    }
+
+    .hours {
+      font-size: 0.9rem;
+      margin-top: 0.4rem;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: #e9f8ed;
+      color: var(--green);
+      border-radius: 999px;
+      padding: 0.2rem 0.6rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-top: 0.25rem;
+    }
+
+    .status-badge span {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+    }
+
+    .hero-card-footer {
+      margin-top: 0.75rem;
+      font-size: 0.8rem;
+      color: #666;
+    }
+
+    /* Sections */
+    section {
+      padding: 3rem 0;
+    }
+
+    .section-alt {
+      background: var(--light-bg);
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      margin-bottom: 0.4rem;
+      color: var(--dark);
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: #777;
+      margin-bottom: 1.6rem;
+    }
+
+    /* Products */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.1rem;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 0.9rem;
+      border: 1px solid #e3e3e3;
+      padding: 1rem;
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.45rem;
+      color: var(--dark);
+    }
+
+    .card p {
+      font-size: 0.86rem;
+      color: #666;
+    }
+
+    .placeholder-img {
+      width: 100%;
+      height: 140px;
+      border-radius: 0.7rem;
+      background: linear-gradient(135deg, #f7fff8, #e4f5e8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      color: #4a7a4f;
+      margin-bottom: 0.7rem;
+    }
+
+    /* Services */
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .service-badge {
+      border-radius: 999px;
+      padding: 0.4rem 0.9rem;
+      font-size: 0.85rem;
+      border: 1px solid #d3d3d3;
+      background: #fff;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .service-badge.ebt {
+      border-color: var(--green);
+      background: #e9f8ed;
+      color: var(--green);
+      font-weight: 600;
+    }
+
+    .service-badge.delivery {
+      border-color: var(--red);
+      background: #ffeaea;
+      color: var(--red);
+      font-weight: 600;
+    }
+
+    /* Gallery (placeholder) */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .gallery-item {
+      border-radius: 0.9rem;
+      overflow: hidden;
+      border: 1px solid #e3e3e3;
+      background: #fff;
+    }
+
+    .gallery-img {
+      width: 100%;
+      height: 150px;
+      background: radial-gradient(circle at top left, #fff8f8, #f2fff4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    .gallery-caption {
+      font-size: 0.8rem;
+      padding: 0.55rem 0.7rem 0.7rem;
+      color: #666;
+    }
+
+    /* Contact / Visit */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.6fr);
+      gap: 1.8rem;
+      align-items: flex-start;
+    }
+
+    .contact-form {
+      background: #fff;
+      border-radius: 0.9rem;
+      padding: 1.1rem 1rem;
+      border: 1px solid #e3e3e3;
+    }
+
+    .form-row {
+      margin-bottom: 0.7rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 0.5rem 0.55rem;
+      border-radius: 0.4rem;
+      border: 1px solid #cccccc;
+      font-size: 0.9rem;
+      font-family: inherit;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    .contact-details {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .contact-details p {
+      margin-bottom: 0.5rem;
+    }
+
+    .map-placeholder {
+      margin-top: 0.8rem;
+      border-radius: 0.7rem;
+      border: 1px dashed #c7c7c7;
+      padding: 0.75rem;
+      font-size: 0.8rem;
+      color: #777;
+    }
+
+    .social-links {
+      margin-top: 0.6rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      font-size: 0.85rem;
+    }
+
+    .social-links a {
+      color: var(--green);
+      font-weight: 600;
+    }
+
+    footer {
+      padding: 1.2rem 0 1.4rem;
+      font-size: 0.8rem;
+      color: #777;
+      border-top: 1px solid #e4e4e4;
+      text-align: center;
+      background: #fff;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero-inner,
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 2.4rem;
+      }
+
+      .hero-card {
+        margin-top: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <!-- Replace src with your actual logo file path -->
+        <img src="SabziMandi.JPG" alt="Sabzi Mandi logo" class="logo-img">
+        <div class="nav-title">Sabzi Mandi</div>
+      </div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#products">Products</a>
+        <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#visit">Visit Us</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-inner">
+    <div>
+      <div class="hero-badge">
+        <span></span>
+        Traditional Ethnic Market • Renton, WA
+      </div>
+      <h1>
+        Sabzi Mandi <span>International Foods &amp; Groceries</span>
+      </h1>
+      <p class="hero-sub">
+        Family-owned neighborhood market bringing you fresh produce, South Asian staples, and exclusive snacks
+        — all in one convenient stop.
+      </p>
+
+      <div class="hero-highlights">
+        <div class="pill"><span class="pill-dot"></span>Fresh produce</div>
+        <div class="pill"><span class="pill-dot"></span>Indian groceries &amp; spices</div>
+        <div class="pill"><span class="pill-dot"></span>Snacks &amp; drinks</div>
+        <div class="pill"><span class="pill-dot"></span>Household essentials</div>
+      </div>
+
+      <div class="hero-cta">
+        <a href="#visit">
+          <button class="btn-primary">
+            Plan your visit →
+          </button>
+        </a>
+        <a href="https://www.instagram.com/sabzimandirenton/" target="_blank" rel="noopener">
+          <button class="btn-outline">
+            Follow us on Instagram
+          </button>
+        </a>
+      </div>
+
+      <div class="hero-note">
+        Brand new in Renton • Exclusive snacks &amp; international products you won’t find in big-box stores.
+      </div>
+    </div>
+
+    <aside class="hero-card">
+      <h3>Store Details</h3>
+      <div class="info-row">
+        <div class="info-label">Location</div>
+        <div class="info-value">
+          17622 108th Ave SE<br>
+          Renton, WA
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">Hours</div>
+        <div class="info-value hours">
+          Mon–Fri: 9:00 AM – 9:00 PM<br>
+          Sat–Sun: 10:00 AM – 8:00 PM
+          <div class="status-badge">
+            <span></span> Open daily
+          </div>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">Contact</div>
+        <div class="info-value">
+          Phone: (XXX) XXX-XXXX<br>
+          Email: sabzimandirenton@gmail.com
+        </div>
+      </div>
+      <div class="hero-card-footer">
+        EBT accepted • Delivery available • Family-owned international grocery store in your neighborhood.
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section id="about" class="section-alt">
+  <div class="container">
+    <h2 class="section-title">About Sabzi Mandi</h2>
+    <p class="section-subtitle">
+      A local, family-owned international grocery store serving the Renton community with fresh food and familiar flavors.
+    </p>
+    <p style="font-size: 0.95rem; color:#555; max-width:40rem;">
+      Sabzi Mandi International Foods &amp; Groceries is your one-stop market for everyday essentials and authentic
+      ingredients from across South Asia and beyond. Whether you’re shopping for weekly groceries, craving a favorite
+      snack from back home, or discovering new flavors, we’re here to make it easy, friendly, and affordable.
+    </p>
+  </div>
+</section>
+
+<section id="products">
+  <div class="container">
+    <h2 class="section-title">What You’ll Find Here</h2>
+    <p class="section-subtitle">A curated selection of everyday essentials and international favorites.</p>
+
+    <div class="grid">
+      <div class="card">
+        <div class="placeholder-img">Fresh produce – fruits &amp; vegetables</div>
+        <h3>Fresh Produce</h3>
+        <p>Seasonal fruits, vegetables, and herbs to keep your home kitchen stocked and healthy.</p>
+      </div>
+      <div class="card">
+        <div class="placeholder-img">Indian groceries &amp; pantry staples</div>
+        <h3>Indian Groceries</h3>
+        <p>Rice, flour, oils, pickles, ready-to-eat meals, and everyday pantry items from popular brands.</p>
+      </div>
+      <div class="card">
+        <div class="placeholder-img">Spices, dals &amp; lentils</div>
+        <h3>Spices &amp; Lentils</h3>
+        <p>Whole and ground spices, dals, and lentils to bring authentic flavor to your cooking.</p>
+      </div>
+      <div class="card">
+        <div class="placeholder-img">Frozen foods &amp; snacks</div>
+        <h3>Frozen Foods</h3>
+        <p>Frozen parathas, snacks, veggies, and quick meals for busy days.</p>
+      </div>
+      <div class="card">
+        <div class="placeholder-img">Chips, drinks &amp; more</div>
+        <h3>Snacks &amp; Drinks</h3>
+        <p>Exclusive snacks, biscuits, chips, soft drinks, and juices for every craving.</p>
+      </div>
+      <div class="card">
+        <div class="placeholder-img">Home &amp; household essentials</div>
+        <h3>Household Essentials</h3>
+        <p>Daily household items to save you a separate trip – all under one roof.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="section-alt">
+  <div class="container">
+    <h2 class="section-title">Services</h2>
+    <p class="section-subtitle">Making your shopping easier and more accessible.</p>
+
+    <div class="badge-row">
+      <div class="service-badge ebt">
+        ✔ EBT Accepted
+      </div>
+      <div class="service-badge delivery">
+        ✔ Delivery Available
+      </div>
+      <div class="service-badge">
+        ✔ Friendly, family-owned service
+      </div>
+      <div class="service-badge">
+        ✔ Exclusive snacks &amp; international items
+      </div>
+      <div class="service-badge">
+        ✔ Convenient Renton location
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="container">
+    <h2 class="section-title">Store Preview</h2>
+    <p class="section-subtitle">Photos coming soon — here’s what you can expect when you visit.</p>
+
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <div class="gallery-img">Storefront image placeholder</div>
+        <div class="gallery-caption">Exterior view of Sabzi Mandi – Renton, WA.</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-img">Fresh produce aisle placeholder</div>
+        <div class="gallery-caption">Colorful fruits and vegetables, restocked regularly.</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-img">Aisles &amp; shelves placeholder</div>
+        <div class="gallery-caption">Spices, lentils, snacks, and more along organized aisles.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="visit" class="section-alt">
+  <div class="container">
+    <h2 class="section-title">Visit or Contact Us</h2>
+    <p class="section-subtitle">Stop by the store or send us a message with any questions.</p>
+
+    <div class="contact-layout">
+      <div class="contact-details">
+        <p><strong>Address</strong><br>
+          17622 108th Ave SE<br>
+          Renton, WA
+        </p>
+        <p><strong>Store Hours</strong><br>
+          Mon–Fri: 9:00 AM – 9:00 PM<br>
+          Sat–Sun: 10:00 AM – 8:00 PM
+        </p>
+        <p>
+          <strong>Contact</strong><br>
+          Phone: (XXX) XXX-XXXX<br>
+          Email: <a href="mailto:sabzimandirenton@gmail.com">sabzimandirenton@gmail.com</a>
+        </p>
+
+        <div class="social-links">
+          <a href="https://www.instagram.com/sabzimandirenton/" target="_blank" rel="noopener">
+            Instagram @sabzimandirenton
+          </a>
+          <a href="https://maps.google.com/?q=Sabzi+Mandi+International+Foods+Groceries+17622+108th+Ave+SE+Renton+WA"
+             target="_blank" rel="noopener">
+            View on Google Maps
+          </a>
+        </div>
+
+        <div class="map-placeholder">
+          Map preview coming soon. You can embed a Google Maps iframe here once the listing is live.
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <form action="#" method="post">
+          <div class="form-row">
+            <label for="name">Name</label>
+            <input id="name" type="text" placeholder="Your name">
+          </div>
+          <div class="form-row">
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="you@example.com">
+          </div>
+          <div class="form-row">
+            <label for="message">Message</label>
+            <textarea id="message" placeholder="Ask about products, availability, or general questions."></textarea>
+          </div>
+          <button type="submit" class="btn-primary">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © <span id="year"></span> Sabzi Mandi International Foods &amp; Groceries – Renton, WA. All rights reserved.
+</footer>
+
+<script>
+  // Set current year in footer
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
