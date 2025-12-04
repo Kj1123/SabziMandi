@@ -18,6 +18,11 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
       line-height: 1.6;
@@ -459,6 +464,22 @@
       margin-bottom: 0.5rem;
     }
 
+/* Add the map wrapper styles RIGHT HERE */
+.map-wrapper {
+  margin-top: 1.8rem;
+  border-radius: 0.9rem;
+  overflow: hidden;
+  border: 1px solid #e3e3e3;
+  background: #fff;
+}
+
+.map-wrapper iframe {
+  display: block;
+  width: 100%;
+  height: 260px;
+  border: 0;
+}
+
     .map-placeholder {
       margin-top: 0.8rem;
       border-radius: 0.7rem;
@@ -468,18 +489,39 @@
       color: #777;
     }
 
-    .social-links {
-      margin-top: 0.6rem;
+       .social-links {
+      margin-top: 0.9rem;
       display: flex;
       flex-wrap: wrap;
-      gap: 0.6rem;
+      gap: 0.5rem;
       font-size: 0.85rem;
     }
 
     .social-links a {
+      color: inherit;
+      font-weight: 500;
+    }
+
+    .social-pill {
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid #d3d3d3;
+      background: #fff;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .social-pill.instagram {
+      border-color: var(--green);
       color: var(--green);
       font-weight: 600;
     }
+
+    .social-pill.maps {
+      border-color: #cccccc;
+    }
+
 
     footer {
       padding: 1.2rem 0 1.4rem;
@@ -713,15 +755,18 @@
     <p class="section-subtitle">Stop by the store or send us a message with any questions.</p>
 
     <div class="contact-layout">
+      <!-- LEFT: details -->
       <div class="contact-details">
         <p><strong>Address</strong><br>
           17622 108th Ave SE<br>
           Renton, WA
         </p>
+
         <p><strong>Store Hours</strong><br>
           Mon–Fri: 9:00 AM – 9:00 PM<br>
           Sat–Sun: 10:00 AM – 8:00 PM
         </p>
+
         <p>
           <strong>Contact</strong><br>
           Phone: (XXX) XXX-XXXX<br>
@@ -729,27 +774,27 @@
         </p>
 
         <div class="social-links">
-          <a href="https://www.instagram.com/sabzimandirenton/" target="_blank" rel="noopener">
+          <a
+            class="social-pill instagram"
+            href="https://www.instagram.com/sabzimandirenton/"
+            target="_blank"
+            rel="noopener"
+          >
             Instagram @sabzimandirenton
           </a>
-          <a href="https://maps.google.com/?q=Sabzi+Mandi+International+Foods+Groceries+17622+108th+Ave+SE+Renton+WA"
-             target="_blank" rel="noopener">
-            View on Google Maps
+
+          <a
+            class="social-pill maps"
+            href="https://maps.google.com/?q=Sabzi+Mandi+International+Foods+Groceries+17622+108th+Ave+SE+Renton+WA"
+            target="_blank"
+            rel="noopener"
+          >
+            Open in Google Maps
           </a>
         </div>
-
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2698.33607226373!2d-122.2008696141914!3d47.44438802485552!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54905d33d62261a3%3A0xaf111237a7d5b58!2sSabzi%20Mandi%20International%20Foods%20%26%20Groceries!5e0!3m2!1sen!2sus!4v1764832471519!5m2!1sen!2sus" 
-          width="100%" 
-          height="250" 
-          style="border:0; border-radius: 8px;" 
-          allowfullscreen="" 
-          loading="lazy" 
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-
       </div>
 
+      <!-- RIGHT: form -->
       <div class="contact-form">
         <form action="#" method="post">
           <div class="form-row">
@@ -768,8 +813,19 @@
         </form>
       </div>
     </div>
+
+    <!-- FULL-WIDTH MAP BELOW -->
+    <div class="map-wrapper">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2698.33607226373!2d-122.2008696141914!3d47.44438802485552!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54905d33d62261a3%3A0xaf111237a7d5b58!2sSabzi%20Mandi%20International%20Foods%20%26%20Groceries!5e0!3m2!1sen!2sus!4v1764832471519!5m2!1sen!2sus"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen="">
+      </iframe>
+    </div>
   </div>
 </section>
+
 
 <footer>
   © <span id="year"></span> Sabzi Mandi International Foods &amp; Groceries – Renton, WA. All rights reserved.
