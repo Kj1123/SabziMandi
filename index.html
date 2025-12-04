@@ -105,12 +105,44 @@
       padding: 3.5rem 0 3rem;
     }
 
-    .hero-inner {
+       .hero-inner {
       display: grid;
       grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
       gap: 2.5rem;
       align-items: center;
     }
+    
+    /* --- ADD THESE NEW STYLES BELOW --- */
+    
+    .hero-inner {
+      grid-template-columns: 3fr 2.1fr;
+      gap: 3rem;
+    }
+    
+    .hero h1 {
+      margin-bottom: 0.8rem;
+      line-height: 1.15;
+    }
+    
+    .hero h1 span {
+      display: block;
+      margin-top: 0.3rem;
+      font-size: 85%;
+      font-weight: 600;
+    }
+    
+    .hero-card {
+      margin-top: 1rem;
+      padding: 1rem 1rem;
+      border-radius: 0.8rem;
+      border: 1px solid #ececec;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+    }
+    
+    .hero-highlights {
+      margin-top: 1rem;
+    }
+
 
     .hero-badge {
       display: inline-flex;
