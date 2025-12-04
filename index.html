@@ -20,7 +20,7 @@
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 90px; /* prevents headings from being hidden under sticky header */
+      scroll-padding-top: 90px;
     }
 
     body {
@@ -105,11 +105,11 @@
       padding: 3.2rem 0 3rem;
     }
 
-      .hero-inner {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr); /* single column */
-    gap: 2.2rem;
-    align-items: flex-start;
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 2.2rem;
+      align-items: flex-start;
     }
 
     .hero-badge {
@@ -418,16 +418,25 @@
 
     /* Contact / Visit */
     .contact-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.7fr);
-  gap: 2rem;
-  align-items: stretch;   /* make both columns equal height */
-}
-    .contact-details,
-.contact-form {
-  height: 100%;
-}
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.7fr);
+      gap: 2rem;
+      align-items: flex-start;
+    }
 
+    .contact-details-card {
+      background: #fff;
+      border-radius: 0.9rem;
+      padding: 1.25rem 1.1rem 1.1rem;
+      border: 1px solid #e3e3e3;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.04);
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .contact-details-card p {
+      margin-bottom: 0.5rem;
+    }
 
     .contact-form {
       background: #fff;
@@ -461,15 +470,6 @@
     textarea {
       resize: vertical;
       min-height: 90px;
-    }
-
-    .contact-details {
-      font-size: 0.9rem;
-      color: #555;
-    }
-
-    .contact-details p {
-      margin-bottom: 0.5rem;
     }
 
     .social-links {
@@ -557,7 +557,6 @@
 <header>
   <div class="container">
     <nav class="nav">
-      <!-- Logo as "back to top" button -->
       <a href="#top" class="nav-left">
         <img src="SabziMandi.JPG" alt="Sabzi Mandi logo" class="logo-img">
       </a>
@@ -607,9 +606,8 @@
         Brand new in Renton • Exclusive snacks &amp; international products you won’t find in big-box stores.
       </div>
     </div>
-  </div> 
+  </div>
 </section>
-
 
 <section id="about" class="section-alt">
   <div class="container">
@@ -706,8 +704,8 @@
     <p class="section-subtitle">Stop by the store or send us a message with any questions.</p>
 
     <div class="contact-layout">
-      <!-- LEFT: details -->
-      <div class="contact-details">
+      <!-- LEFT: details card -->
+      <div class="contact-details-card">
         <p><strong>Address</strong><br>
           17622 108th Ave SE<br>
           Renton, WA
@@ -745,7 +743,7 @@
         </div>
       </div>
 
-      <!-- RIGHT: form -->
+      <!-- RIGHT: form card -->
       <div class="contact-form">
         <form action="#" method="post">
           <div class="form-row">
