@@ -418,11 +418,16 @@
 
     /* Contact / Visit */
     .contact-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.7fr);
-      gap: 2rem;
-      align-items: flex-start; /* top align both columns */
-    }
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.7fr);
+  gap: 2rem;
+  align-items: stretch;   /* make both columns equal height */
+}
+    .contact-details,
+.contact-form {
+  height: 100%;
+}
+
 
     .contact-form {
       background: #fff;
