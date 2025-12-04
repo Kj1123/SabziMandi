@@ -20,7 +20,7 @@
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 90px;
+      scroll-padding-top: 90px; /* prevents headings from being hidden under sticky header */
     }
 
     body {
@@ -63,18 +63,13 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      cursor: pointer; /* make it feel clickable */
+      cursor: pointer;
     }
 
     .logo-img {
-      height: 70px;  /* bigger logo */
+      height: 70px;
       width: auto;
-    }
-
-    .nav-title {
-      font-weight: 700;
-      font-size: 1rem;
-      color: var(--green);
+      display: block;
     }
 
     .nav-links {
@@ -384,7 +379,7 @@
       font-weight: 600;
     }
 
-    /* Gallery (placeholder) */
+    /* Gallery */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -441,7 +436,8 @@
       margin-bottom: 0.25rem;
     }
 
-    input, textarea {
+    input,
+    textarea {
       width: 100%;
       padding: 0.5rem 0.55rem;
       border-radius: 0.4rem;
@@ -464,32 +460,7 @@
       margin-bottom: 0.5rem;
     }
 
-/* Add the map wrapper styles RIGHT HERE */
-.map-wrapper {
-  margin-top: 1.8rem;
-  border-radius: 0.9rem;
-  overflow: hidden;
-  border: 1px solid #e3e3e3;
-  background: #fff;
-}
-
-.map-wrapper iframe {
-  display: block;
-  width: 100%;
-  height: 260px;
-  border: 0;
-}
-
-    .map-placeholder {
-      margin-top: 0.8rem;
-      border-radius: 0.7rem;
-      border: 1px dashed #c7c7c7;
-      padding: 0.75rem;
-      font-size: 0.8rem;
-      color: #777;
-    }
-
-       .social-links {
+    .social-links {
       margin-top: 0.9rem;
       display: flex;
       flex-wrap: wrap;
@@ -522,6 +493,21 @@
       border-color: #cccccc;
     }
 
+    /* Map below contact */
+    .map-wrapper {
+      margin-top: 1.8rem;
+      border-radius: 0.9rem;
+      overflow: hidden;
+      border: 1px solid #e3e3e3;
+      background: #fff;
+    }
+
+    .map-wrapper iframe {
+      display: block;
+      width: 100%;
+      height: 260px;
+      border: 0;
+    }
 
     footer {
       padding: 1.2rem 0 1.4rem;
@@ -554,12 +540,12 @@
 </head>
 <body>
 
-<div id="top"></div> <!-- anchor for scrolling to top -->
+<div id="top"></div>
 
 <header>
   <div class="container">
     <nav class="nav">
-      <!-- Logo only, acts as a button to go to top -->
+      <!-- Logo as "back to top" button -->
       <a href="#top" class="nav-left">
         <img src="SabziMandi.JPG" alt="Sabzi Mandi logo" class="logo-img">
       </a>
@@ -586,8 +572,7 @@
         Sabzi Mandi <span>International Foods &amp; Groceries</span>
       </h1>
       <p class="hero-sub">
-        Family-owned neighborhood market bringing you fresh produce, South Asian staples, and exclusive snacks
-        — all in one convenient stop.
+        Family-owned neighborhood market bringing you fresh produce, South Asian staples, and exclusive snacks — all in one convenient stop.
       </p>
 
       <div class="hero-highlights">
@@ -599,14 +584,10 @@
 
       <div class="hero-cta">
         <a href="#visit">
-          <button class="btn-primary">
-            Plan your visit →
-          </button>
+          <button class="btn-primary">Plan your visit →</button>
         </a>
         <a href="https://www.instagram.com/sabzimandirenton/" target="_blank" rel="noopener">
-          <button class="btn-outline">
-            Follow us on Instagram
-          </button>
+          <button class="btn-outline">Follow us on Instagram</button>
         </a>
       </div>
 
@@ -655,9 +636,7 @@
       A local, family-owned international grocery store serving the Renton community with fresh food and familiar flavors.
     </p>
     <p style="font-size: 0.95rem; color:#555; max-width:40rem;">
-      Sabzi Mandi International Foods &amp; Groceries is your one-stop market for everyday essentials and authentic
-      ingredients from across South Asia and beyond. Whether you’re shopping for weekly groceries, craving a favorite
-      snack from back home, or discovering new flavors, we’re here to make it easy, friendly, and affordable.
+      Sabzi Mandi International Foods &amp; Groceries is your one-stop market for everyday essentials and authentic ingredients from across South Asia and beyond. Whether you’re shopping for weekly groceries, craving a favorite snack from back home, or discovering new flavors, we’re here to make it easy, friendly, and affordable.
     </p>
   </div>
 </section>
@@ -708,21 +687,11 @@
     <p class="section-subtitle">Making your shopping easier and more accessible.</p>
 
     <div class="badge-row">
-      <div class="service-badge ebt">
-        ✔ EBT Accepted
-      </div>
-      <div class="service-badge delivery">
-        ✔ Delivery Available
-      </div>
-      <div class="service-badge">
-        ✔ Friendly, family-owned service
-      </div>
-      <div class="service-badge">
-        ✔ Exclusive snacks &amp; international items
-      </div>
-      <div class="service-badge">
-        ✔ Convenient Renton location
-      </div>
+      <div class="service-badge ebt">✔ EBT Accepted</div>
+      <div class="service-badge delivery">✔ Delivery Available</div>
+      <div class="service-badge">✔ Friendly, family-owned service</div>
+      <div class="service-badge">✔ Exclusive snacks &amp; international items</div>
+      <div class="service-badge">✔ Convenient Renton location</div>
     </div>
   </div>
 </section>
@@ -825,7 +794,6 @@
     </div>
   </div>
 </section>
-
 
 <footer>
   © <span id="year"></span> Sabzi Mandi International Foods &amp; Groceries – Renton, WA. All rights reserved.
