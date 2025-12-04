@@ -418,10 +418,9 @@
 
     /* Contact / Visit */
     .contact-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.7fr);
+      display: flex;
       gap: 2rem;
-      align-items: flex-start;
+      align-items: stretch; /* make children same height */
     }
 
     .contact-details-card {
@@ -436,6 +435,13 @@
 
     .contact-details-card p {
       margin-bottom: 0.5rem;
+    }
+
+    .contact-details-card,
+    .contact-form {
+      flex: 1;               /* equal width & height */
+      display: flex;
+      flex-direction: column;
     }
 
     .contact-form {
@@ -535,9 +541,12 @@
         display: none;
       }
 
-      .hero-inner,
-      .contact-layout {
+      .hero-inner {
         grid-template-columns: 1fr;
+      }
+
+      .contact-layout {
+        flex-direction: column; /* stack on mobile */
       }
 
       .hero {
